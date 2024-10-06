@@ -1,0 +1,92 @@
+<style>
+    * {
+        color: magenta;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        height: 600px;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #gif {
+        width: 400px;
+    }
+
+    #btns {
+        width: 350px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    button {
+        width: 150px;
+        height: 50px;
+        font-size: larger;
+        border-radius: 30px;
+        border: solid 1px magenta;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="text"></h1>
+        <img id="gif">
+        <div id="btns">
+            <button id="yesBtn">yes</button>
+            <button id="noBtn">no</button>
+        </div>
+    </div>
+
+    <script>
+        const gif = document.getElementById('gif');
+        const yesbtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const text = document.getElementById('text');
+        const btns = document.getElementById('btns');
+
+        const maxX = window.innerWidth;
+        const maxY = window.innerHeight;
+        
+        gif.src = "https://media.tenor.com/QYeYet2tgIUAAAAi/bubu-dudu.gif";
+        
+        text.textContent = 'hi, do you love me?';
+
+        yesbtn.addEventListener('click', function() {
+            text.textContent = 'i love you too <3';   
+            gif.src = "https://media.tenor.com/hmYv6-dCkGgAAAAi/bubu-dudu-bubu.gif"
+            btns.style.display = 'none';   
+        });
+        
+        noBtn.addEventListener('mouseover', function() {
+            btns.style.justifyContent = 'flex-start';
+            noBtn.style.position = 'absolute';
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
+            console.log(noBtn.style.left);
+        });
+
+        
+    </script>
+</body>
+</html>
